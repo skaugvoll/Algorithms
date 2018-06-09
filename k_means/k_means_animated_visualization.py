@@ -21,13 +21,20 @@ fig = plt.figure()
 ax1 = fig.add_subplot(1,1,1)
 
 
-# First we create the data
-num_examples = 100
-num_attributes = 2
-examples = np.random.uniform(-10,10,(num_examples, num_attributes))
+# First we create the data or read it in
+create = False
 
-# Define how many clusters we want
-num_clusters = 10
+
+if create:
+    num_examples = 100
+    num_attributes = 2
+    examples = np.random.uniform(-10,10,(num_examples, num_attributes))
+    num_clusters = 10 # Define how many clusters we want
+else:
+    examples = np.loadtxt("data/test_3_colors.txt", dtype=float, comments="#", delimiter=",")
+    num_attributes = examples.shape[1]
+    num_clusters = 3
+
 
 # Step 1 : Randomly choose k data points to be the initial centroids, cluster centers
 #centroids = [[0,0],[3,3],[9,9]]
@@ -39,9 +46,9 @@ for i in range(num_clusters):
 def animate(interval):
     # Now the meat of the algorithm starts
     print("Iteration: {}".format(interval))
-    # Make clean clusters so we can fill them up 
+    # Make clean clusters so we can fill them up
     clusters = [[] for x in range(num_clusters)]
-    
+
     # Step 2 Assign each data point to the closest centroid
     for example in examples:
         closes_centroid = None
@@ -69,7 +76,7 @@ def animate(interval):
             new_centroid[a] = new_coord
 
         new_centroids.append(new_centroid)
-    
+
     global centroids
     centroids = new_centroids
 
@@ -88,9 +95,3 @@ def animate(interval):
 # This runs the badboy, 1000 = ms interval
 ani = animation.FuncAnimation(fig, animate, 1000)
 plt.show()
-    
- 
-
-
-
-  
