@@ -1,0 +1,5 @@
+# outlook, windy, avalance risk, skitour(target)
+sunny, false, high, yes
+sunny, true, high, yes
+overcast, true, high, yes
+snow, false, medium, yes

@@ -1,0 +1,15 @@
+# x1, x2, ... ,xn, target value
+sunny, false, high, yes
+sunny, true, high, no
+overcast, true, high, no
+snow, false, medium, yes
+snow, false, low, yes
+snow, true, low, yes
+overcast, true, low, yes
+sunny, false, medium, no
+sunny, false, low, yes
+snow, false, medium, yes
+sunny, true, medium, no
+overcast, true, medium, yes
+overcast, false, high, no
+snow, true, medium, no
